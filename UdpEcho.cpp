@@ -43,7 +43,7 @@ int UdpEcho::scan(EchoRespond ret[], IPAddress target, int size, int port)
       
       ret[count].address = udp->remoteIP();      
       strncpy(ret[count].host, packet, packetSize);
-      ret[count].host[packetSize-1] = '\0';
+      ret[count].host[packetSize] = '\0';
       
       if (pLog != NULL)
         pLog->printf("Echo(%s) was received from %s:%d\n", ret[count].host, udp->remoteIP().toString().c_str(), udp->remotePort());
